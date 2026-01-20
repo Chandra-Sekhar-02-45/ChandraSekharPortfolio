@@ -1,0 +1,14 @@
+# System files
+.DS_Store
+
+# Assets (using web links instead)
+assets/
+*.png
+*.jpg
+*.jpeg
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
