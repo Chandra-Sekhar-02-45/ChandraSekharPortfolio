@@ -1,0 +1,12 @@
+{
+    "name": "chandra-sekhar-portfolio",
+    "version": "1.0.0",
+    "description": "Personal Portfolio",
+    "scripts": {
+        "build": "mkdir -p dist && cp -r index.html styles.css src assets dist/",
+        "start": "python3 -m http.server 8080"
+    },
+    "keywords": [],
+    "author": "Chandra Sekhar",
+    "license": "ISC"
+}
