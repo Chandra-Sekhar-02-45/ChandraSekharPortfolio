@@ -24,11 +24,11 @@ const Experience = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="glass-card p-8 bg-white border border-gray-100 shadow-sm"
+                            className="glass-card p-8"
                         >
                             <div className="flex flex-col md:flex-row gap-6 md:items-start justify-between">
                                 <div className="flex items-start gap-4">
-                                    <div className="p-3 rounded-full bg-gray-50 text-accent mt-1 border border-gray-100">
+                                    <div className="p-3 rounded-full bg-white text-black mt-1 border-2 border-black shadow-[2px_2px_0px_#000000]">
                                         <Briefcase size={24} />
                                     </div>
                                     <div>
@@ -45,7 +45,7 @@ const Experience = () => {
                                 </div>
 
                                 <div className="md:text-right min-w-[140px]">
-                                    <span className="inline-block px-4 py-2 rounded-full border border-gray-200 text-sm font-medium text-gray-500 bg-white">
+                                    <span className="inline-block px-4 py-2 rounded-full border-2 border-black text-sm font-bold text-black bg-white">
                                         {exp.period}
                                     </span>
                                 </div>

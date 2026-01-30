@@ -50,14 +50,16 @@ const Contact = () => {
                     transition={{ duration: 0.6 }}
                     className="contact-video-shell mb-14"
                 >
-                    <video
-                        className="contact-video"
-                        src="https://goodies.icons8.com/landings/visualpharm/videos/animated-2d/weekday-business-team-strutting-confidently.mp4"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                    />
+                    <div className="contact-video-shell mb-14 border-4 border-black shadow-[8px_8px_0px_#000000] rounded-[32px] overflow-hidden">
+                        <video
+                            className="contact-video"
+                            src="https://goodies.icons8.com/landings/visualpharm/videos/animated-2d/weekday-business-team-strutting-confidently.mp4"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                        />
+                    </div>
                 </motion.div>
 
                 <div className="contact-grid grid grid-cols-1 md:grid-cols-2 items-start">
@@ -129,7 +131,7 @@ const Contact = () => {
                                     type="text"
                                     name="user_name"
                                     required
-                                    className="w-full px-5 py-4 bg-white rounded-xl border border-gray-200 shadow-[0_4px_14px_rgba(15,23,42,0.05)] hover:shadow-[0_8px_24px_rgba(15,23,42,0.08)] focus:border-[#0f172a] focus:ring-2 focus:ring-[#0f172a]/15 outline-none transition-all placeholder-gray-400 text-base"
+                                    className="w-full px-5 py-4 bg-white rounded-xl border-2 border-black shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] hover:-translate-y-0.5 focus:outline-none transition-all placeholder-gray-400 text-base"
                                     placeholder="John Doe"
                                 />
                             </div>
@@ -140,7 +142,7 @@ const Contact = () => {
                                     type="email"
                                     name="user_email"
                                     required
-                                    className="w-full px-5 py-4 bg-white rounded-xl border border-gray-200 shadow-[0_4px_14px_rgba(15,23,42,0.05)] hover:shadow-[0_8px_24px_rgba(15,23,42,0.08)] focus:border-[#0f172a] focus:ring-2 focus:ring-[#0f172a]/15 outline-none transition-all placeholder-gray-400 text-base"
+                                    className="w-full px-5 py-4 bg-white rounded-xl border-2 border-black shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] hover:-translate-y-0.5 focus:outline-none transition-all placeholder-gray-400 text-base"
                                     placeholder="john@example.com"
                                 />
                             </div>
@@ -151,7 +153,7 @@ const Contact = () => {
                                     name="message"
                                     required
                                     rows="6"
-                                    className="w-full px-5 py-4 bg-white rounded-xl border border-gray-200 shadow-[0_4px_14px_rgba(15,23,42,0.05)] hover:shadow-[0_8px_24px_rgba(15,23,42,0.08)] focus:border-[#0f172a] focus:ring-2 focus:ring-[#0f172a]/15 outline-none transition-all placeholder-gray-400 resize-none text-base"
+                                    className="w-full px-5 py-4 bg-white rounded-xl border-2 border-black shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] hover:-translate-y-0.5 focus:outline-none transition-all placeholder-gray-400 text-base"
                                     placeholder="Tell me about your project..."
                                 ></textarea>
                             </div>

@@ -23,10 +23,10 @@ const Projects = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="glass-card flex flex-col h-full p-8 bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+                            className="glass-card flex flex-col h-full p-8"
                         >
                             <div className="mb-6 flex justify-between items-start">
-                                <div className="p-3 bg-gray-50 rounded-lg border border-gray-100">
+                                <div className="p-3 bg-white rounded-lg border-2 border-black shadow-[2px_2px_0px_#000000]">
                                     <ArrowUpRight className="text-accent" size={24} />
                                 </div>
                                 <div className="flex gap-4">
@@ -49,7 +49,7 @@ const Projects = () => {
 
                             <div className="flex flex-wrap gap-2 mt-auto">
                                 {project.tags.map((tag) => (
-                                    <span key={tag} className="text-xs px-3 py-1 rounded-full text-gray-500 border border-gray-200 bg-gray-50">
+                                    <span key={tag} className="text-xs px-3 py-1 rounded-full text-black border-2 border-black bg-white font-bold">
                                         {tag}
                                     </span>
                                 ))}

@@ -3,7 +3,7 @@ import { ArrowUpRight } from 'lucide-react';
 
 const Footer = () => {
     return (
-        <footer className="py-20 bg-white border-t border-gray-100 cursor-default">
+        <footer className="py-20 bg-white border-t-4 border-black cursor-default">
             <div className="container">
 
                 {/* Visual Call to Action inspired by image */}
@@ -17,7 +17,7 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <a href="mailto:rvcsraju@gmail.com" className="group flex items-center justify-center w-32 h-32 md:w-40 md:h-40 rounded-full bg-blue-600 text-white font-bold text-lg hover:scale-110 transition-transform shadow-xl">
+                        <a href="mailto:rvcsraju@gmail.com" className="group flex items-center justify-center w-32 h-32 md:w-40 md:h-40 rounded-full bg-white text-black font-bold text-lg hover:scale-110 transition-transform shadow-[8px_8px_0px_#000000] border-4 border-black">
                             <span className="group-hover:hidden">Get in touch</span>
                             <ArrowUpRight className="hidden group-hover:block w-12 h-12" />
                         </a>
@@ -28,7 +28,7 @@ const Footer = () => {
                 <div className="border-t border-gray-100 pt-12">
                     <h1 className="text-[10vw] md:text-[12vw] font-bold text-black leading-none tracking-tighter text-center md:text-left opacity-90">
                         {PROFILE.name.split(' ')[0]}
-                        <span className="text-gray-200 ml-4">.Dev</span>
+                        <span className="text-gray-400 ml-4 font-bold opacity-50">.Dev</span>
                     </h1>
                 </div>
 
