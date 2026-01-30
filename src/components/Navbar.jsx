@@ -34,7 +34,7 @@ const Navbar = () => {
         >
             <div className="container flex justify-between items-center">
                 <a href="#" className="font-bold text-2xl text-black">
-                    @{PROFILE.name.split(' ')[0]}
+                    @ChandraSekhar
                 </a>
 
                 {/* Desktop Menu - Force hidden on mobile, flex on md */}
