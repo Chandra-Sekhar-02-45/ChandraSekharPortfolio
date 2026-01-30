@@ -1,108 +1,76 @@
 import { motion } from 'framer-motion';
 import { PROFILE } from '../data';
+import { ArrowRight, Download } from 'lucide-react';
 
 const Hero = () => {
     return (
-        <section className="section relative flex items-center justify-center min-h-screen pt-20">
-            {/* Background Gradient Element */}
-            <div
-                className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px]"
-                style={{
-                    width: '600px',
-                    height: '600px',
-                    background: 'radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(0,0,0,0) 70%)',
-                    filter: 'blur(60px)',
-                    zIndex: -1,
-                    pointerEvents: 'none'
-                }}
-            />
+        <section className="section-light min-h-screen flex items-center pt-20 relative">
+            <div className="bg-grid-light"></div>
 
-            <div className="container relative z-10 w-full">
+            <div className="container grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                {/* Text Content */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="max-w-4xl mx-auto text-center md:text-left" // Centered on mobile, left on desktop if desired, or just mx-auto
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center md:text-left z-10"
                 >
-                    <motion.p
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="text-accent font-medium mb-4"
-                        style={{ letterSpacing: '0.1em' }}
-                    >
-                        HI, I AM
-                    </motion.p>
+                    <div className="inline-block px-4 py-2 bg-white-50 rounded-full text-sm font-medium mb-6 border border-gray-200">
+                        👋 Welcome to my portfolio
+                    </div>
 
-                    <motion.h1
-                        className="text-4xl md:text-6xl font-bold mb-6"
-                        style={{ lineHeight: 1.1, fontSize: 'clamp(3rem, 8vw, 6rem)' }}
-                    >
-                        {PROFILE.name}
-                    </motion.h1>
+                    <h1 className="text-4xl md:text-6xl font-bold mb-6 text-black" style={{ lineHeight: 1.1 }}>
+                        Hello, I am <br />
+                        <span className="text-accent">
+                            {PROFILE.name}
+                        </span>
+                    </h1>
 
-                    <motion.h2
-                        className="text-xl md:text-4xl text-muted mb-8"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.4 }}
-                        style={{ fontWeight: 400, color: 'var(--text-muted)' }}
-                    >
-                        {PROFILE.role}
-                    </motion.h2>
-
-                    <motion.p
-                        className="text-lg md:text-xl text-muted mb-10 max-w-2xl mx-auto md:mx-0" // Centered on mobile
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.6 }}
-                        style={{ lineHeight: 1.6 }}
-                    >
+                    <p className="text-xl text-muted mb-8 max-w-lg mx-auto md:mx-0">
                         {PROFILE.bio}
-                    </motion.p>
+                        User Experience Designer and Frontend Developer based in India.
+                    </p>
 
-                    <motion.div
-                        className="flex gap-4 justify-center md:justify-start" // Centered buttons on mobile
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.8 }}
-                    >
-                        <a href="#projects" className="btn btn-primary">
-                            View Work
+                    <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
+                        <a href="#projects" className="btn btn-primary-light">
+                            Check my work
+                            <ArrowRight size={18} style={{ marginLeft: '8px' }} />
                         </a>
-                        <a href="#contact" className="btn btn-outline">
-                            Contact Me
+                        <a href="/resume.pdf" className="btn btn-outline-light">
+                            Download CV
+                            <Download size={18} style={{ marginLeft: '8px' }} />
                         </a>
-                    </motion.div>
+                    </div>
 
-                    <motion.div
-                        className="flex gap-6 mt-12 justify-center md:justify-start" // Centered icons on mobile
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1.0 }}
-                    >
-                        {PROFILE.social.map((social, index) => {
-                            const Icon = social.icon;
-                            return (
-                                <a
-                                    key={index}
-                                    href={social.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-muted hover:text-accent transition-colors duration-300"
-                                    aria-label={social.label}
-                                >
-                                    <Icon size={24} />
-                                </a>
-                            );
-                        })}
-                    </motion.div>
+                    <div className="mt-12 flex items-center gap-4 justify-center md:justify-start">
+                        {PROFILE.social.map((social, i) => (
+                            <a
+                                key={i}
+                                href={social.link}
+                                target="_blank"
+                                className="p-3 bg-white hover:bg-black hover:text-white transition-colors border border-gray-200 rounded-full flex items-center justify-center text-black"
+                                style={{ width: '48px', height: '48px' }}
+                            >
+                                <social.icon size={20} />
+                            </a>
+                        ))}
+                    </div>
                 </motion.div>
 
-                {/* Abstract shapes */}
-                <div style={{ position: 'absolute', right: 0, top: '50%', transform: 'translateY(-50%)', zIndex: -1, opacity: 0.5 }} className="hidden md:block">
-                    {/* Decoration */}
-                </div>
+                {/* Illustration */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="relative flex justify-center z-10"
+                >
+                    <img
+                        src="/assets/hero_illustration.png"
+                        alt="Hero Illustration"
+                        className="relative z-10"
+                        style={{ maxHeight: '500px' }}
+                    />
+                </motion.div>
             </div>
         </section>
     );

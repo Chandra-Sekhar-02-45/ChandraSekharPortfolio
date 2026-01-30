@@ -1,56 +1,42 @@
 import { motion } from 'framer-motion';
-import { SKILLS } from '../data';
 
 const About = () => {
     return (
-        <section id="about" className="section relative">
-            <div className="container">
+        <section id="about" className="section-light py-24">
+            <div className="container grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                {/* Illustration Left */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="grid md:grid-cols-2 gap-8 items-center"
-                    style={{ gridTemplateColumns: '1fr 1fr' }}
+                    className="flex justify-center md:order-1 order-2"
                 >
-                    <div>
-                        <h2 className="text-2xl font-bold mb-8 flex items-center gap-4">
-                            <span className="text-accent">01.</span> About Me
-                        </h2>
-                        <div className="text-muted" style={{ fontSize: '1.05rem', lineHeight: '1.7' }}>
-                            <p className="mb-4">
-                                Hello! My name is Chandra. I started my journey in web development with a curiosity for how things move on the screen, and that curiosity has evolved into a passion for building robust, scalable web applications.
-                            </p>
-                            <p className="mb-4">
-                                I strongly believe in user-centric design and writing clean, maintainable code. My experience ranges from building small landing pages to architecting complex platforms like Innovation Link.
-                            </p>
-                            <p>
-                                When I'm not coding, you can find me exploring new tech stacks or contributing to the developer community.
-                            </p>
-                        </div>
-                    </div>
+                    <img
+                        src="/assets/about_illustration.png"
+                        alt="About Illustration"
+                        className="max-w-full"
+                        style={{ maxHeight: '400px' }}
+                    />
+                </motion.div>
 
-                    <div className="glass-card p-8" style={{ padding: '2rem' }}>
-                        <h3 className="text-xl font-bold mb-6">Technical Skills</h3>
-                        <div className="flex flex-wrap gap-2" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
-                            {SKILLS.map((skill, index) => (
-                                <motion.span
-                                    key={skill}
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.05 }}
-                                    className="px-4 py-2 rounded-full text-sm font-medium"
-                                    style={{
-                                        background: 'rgba(139, 92, 246, 0.1)',
-                                        color: 'var(--accent)',
-                                        border: '1px solid rgba(139, 92, 246, 0.2)'
-                                    }}
-                                >
-                                    {skill}
-                                </motion.span>
-                            ))}
-                        </div>
+                {/* Content Right */}
+                <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className="md:order-2 order-1"
+                >
+                    <h2 className="text-4xl font-bold mb-8">About Me</h2>
+                    <div className="text-lg text-muted" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                        <p>
+                            Hello! I'm <strong className="text-black">Chandra Sekhar</strong>, a passionate developer who finds joy in creating digital experiences that are not only functional but also beautiful.
+                        </p>
+                        <p>
+                            My journey began with a curiosity for how websites work, which quickly turned into a career obsession. I love bridging the gap between design and engineering, ensuring that every pixel serves a purpose.
+                        </p>
+                        <p>
+                            When I'm not pushing code, I'm likely exploring new design systems, contributing to open source, or finding the perfect cup of coffee.
+                        </p>
                     </div>
                 </motion.div>
             </div>
