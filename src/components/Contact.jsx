@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { Mail, MapPin, Phone, Send, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { PROFILE } from '../data';
 
 const Contact = () => {
     const formRef = useRef();
@@ -110,6 +111,25 @@ const Contact = () => {
                                 </p>
                             </div>
                         </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 }}
+                            className="mt-4 flex flex-wrap items-center gap-4"
+                        >
+                            {PROFILE.social.map((social, i) => (
+                                <a
+                                    key={i}
+                                    href={social.link}
+                                    target="_blank"
+                                    className="social-link"
+                                >
+                                    <social.icon size={22} />
+                                </a>
+                            ))}
+                        </motion.div>
                     </div>
 
                     {/* Right: Form */}
@@ -131,7 +151,7 @@ const Contact = () => {
                                     type="text"
                                     name="user_name"
                                     required
-                                    className="w-full px-5 py-4 bg-white rounded-xl border-2 border-black shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] hover:-translate-y-0.5 focus:outline-none transition-all placeholder-gray-400 text-base"
+                                    className="w-full px-5 py-4 bg-white rounded-[10px] border-2 border-black shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] hover:-translate-y-0.5 focus:outline-none transition-all placeholder-gray-400 text-base"
                                     placeholder="John Doe"
                                 />
                             </div>
@@ -142,7 +162,7 @@ const Contact = () => {
                                     type="email"
                                     name="user_email"
                                     required
-                                    className="w-full px-5 py-4 bg-white rounded-xl border-2 border-black shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] hover:-translate-y-0.5 focus:outline-none transition-all placeholder-gray-400 text-base"
+                                    className="w-full px-5 py-4 bg-white rounded-[10px] border-2 border-black shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] hover:-translate-y-0.5 focus:outline-none transition-all placeholder-gray-400 text-base"
                                     placeholder="john@example.com"
                                 />
                             </div>
@@ -153,7 +173,7 @@ const Contact = () => {
                                     name="message"
                                     required
                                     rows="6"
-                                    className="w-full px-5 py-4 bg-white rounded-xl border-2 border-black shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] hover:-translate-y-0.5 focus:outline-none transition-all placeholder-gray-400 text-base"
+                                    className="w-full px-5 py-4 bg-white rounded-[10px] border-2 border-black shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] hover:-translate-y-0.5 focus:outline-none transition-all placeholder-gray-400 text-base"
                                     placeholder="Tell me about your project..."
                                 ></textarea>
                             </div>
@@ -161,7 +181,7 @@ const Contact = () => {
                             <button
                                 type="submit"
                                 disabled={loading}
-                                className="btn btn-primary-light w-full justify-center py-4 bg-black text-white hover:bg-gray-800 disabled:opacity-70 disabled:cursor-not-allowed"
+                                className="btn w-full justify-center py-4 bg-white text-black border-2 border-black shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] hover:-translate-y-0.5 transition-all font-bold text-lg disabled:opacity-70 disabled:cursor-not-allowed"
                             >
                                 {loading ? (
                                     <><Loader2 className="animate-spin mr-2" size={20} /> Sending...</>

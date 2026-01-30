@@ -4,79 +4,115 @@ import { ArrowRight, Download } from 'lucide-react';
 
 const Hero = () => {
     return (
-        <section className="section-light min-h-screen flex items-center pt-20 relative">
-            <div className="bg-grid-light"></div>
+        <section className="section-light min-h-screen flex items-center pt-24 pb-12 relative overflow-hidden bg-white">
+            {/* Grid Background */}
+            <div className="bg-grid-light absolute inset-0 z-0 opacity-50"></div>
 
-            <div className="container grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="container grid grid-cols-1 md:grid-cols-2 gap-16 items-center relative z-10 px-6">
                 {/* Text Content */}
                 <motion.div
-                    initial={{ opacity: 0, x: -30 }}
+                    initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="text-center md:text-left z-10"
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="text-center md:text-left flex flex-col items-center md:items-start gap-10"
                 >
-                    <div className="inline-block px-4 py-2 bg-white-50 rounded-full text-sm font-medium mb-6 border border-gray-200">
-                        👋 Welcome to my portfolio
-                    </div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2, duration: 0.5 }}
+                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-white rounded-full text-base font-bold border-2 border-black shadow-[4px_4px_0px_#000000] hover:-translate-y-1 hover:shadow-[6px_6px_0px_#000000] transition-all cursor-default mb-6"
+                    >
+                        <span className="text-xl">👋</span> <span className="text-black">Welcome to my portfolio</span>
+                    </motion.div>
 
-                    <h1 className="text-4xl md:text-6xl font-bold mb-6 text-black" style={{ lineHeight: 1.1 }}>
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3, duration: 0.5 }}
+                        className="text-5xl md:text-7xl font-bold text-black tracking-tight mb-6"
+                        style={{ lineHeight: 1.1 }}
+                    >
                         Hello, I am <br />
-                        <span className="text-accent">
+                        <span className="relative inline-block px-1 z-10">
                             {PROFILE.name}
+                            <span className="absolute inset-0 bg-yellow-300 -z-10 transform -rotate-1 translate-y-2 rounded-sm border border-black/10"></span>
                         </span>
-                    </h1>
+                    </motion.h1>
 
-                    <p className="text-xl text-muted mb-8 max-w-lg mx-auto md:mx-0">
-                        {PROFILE.bio}
-                        User Experience Designer and Frontend Developer based in India.
-                    </p>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4, duration: 0.5 }}
+                        className="text-xl text-gray-700 max-w-lg mx-auto md:mx-0 leading-relaxed font-medium mb-8"
+                    >
+                        I craft accessible, pixel-perfect, and performant web experiences. Currently leading Innovation Link while exploring the frontiers of web technology.
+                        <br className="hidden md:block" /> User Experience Designer and Frontend Developer based in India.
+                    </motion.p>
 
-                    <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
-                        <a href="#projects" className="btn btn-primary-light">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5, duration: 0.5 }}
+                        className="flex flex-col md:flex-row gap-6 justify-center md:justify-start w-full md:w-auto mt-6 items-center"
+                    >
+                        <a href="#projects" className="btn bg-black text-white hover:bg-gray-900 text-lg py-4 px-8 group border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,0.3)] hover:shadow-[6px_6px_0px_#000000]">
                             Check my work
-                            <ArrowRight size={18} style={{ marginLeft: '8px' }} />
+                            <ArrowRight size={22} className="ml-3 group-hover:translate-x-1 transition-transform" />
                         </a>
-                        <a href="/resume.pdf" className="btn btn-outline-light">
+                        <a href="/resume.pdf" download="Chandra_Sekhar_Resume.pdf" className="btn bg-white text-black text-lg py-4 px-8 group border-2 border-black shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000]">
                             Download CV
-                            <Download size={18} style={{ marginLeft: '8px' }} />
+                            <Download size={22} className="ml-3 group-hover:translate-y-1 transition-transform" />
                         </a>
-                    </div>
 
-                    <div className="mt-12 flex items-center gap-4 justify-center md:justify-start">
-                        {PROFILE.social.map((social, i) => (
-                            <a
-                                key={i}
-                                href={social.link}
-                                target="_blank"
-                                className="p-3 bg-white hover:bg-black hover:text-white transition-colors border border-gray-200 rounded-full flex items-center justify-center text-black"
-                                style={{ width: '48px', height: '48px' }}
-                            >
-                                <social.icon size={20} />
-                            </a>
-                        ))}
-                    </div>
+                        {(() => {
+                            const linkedIn = PROFILE.social.find(s => s.label === 'LinkedIn');
+                            if (!linkedIn) return null;
+                            const Icon = linkedIn.icon;
+                            return (
+                                <a
+                                    key={linkedIn.label}
+                                    href={linkedIn.link}
+                                    target="_blank"
+                                    className="social-link"
+                                >
+                                    <Icon size={22} />
+                                </a>
+                            );
+                        })()}
+                    </motion.div>
                 </motion.div>
 
                 {/* Illustration */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.94 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.15 }}
+                    initial={{ opacity: 0, scale: 0.9, x: 50 }}
+                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
                     className="relative flex justify-center z-10"
                 >
                     <motion.div
-                        className="hero-video-shell"
-                        animate={{ y: [0, -6, 0] }}
-                        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                        className="relative w-full max-w-[500px]"
+                        animate={{ y: [0, -12, 0] }}
+                        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
                     >
-                        <video
-                            className="hero-video"
-                            src="https://goodies.icons8.com/landings/visualpharm/videos/animated-2d/dynamic-man-working-in-online-support-service-via-laptop-1.mp4"
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                        />
+                        {/* Shadow Block */}
+                        <div className="absolute inset-0 bg-black rounded-[32px] translate-x-4 translate-y-4"></div>
+
+                        {/* Video Container */}
+                        <div className="hero-video-shell border-4 border-black rounded-[32px] overflow-hidden relative bg-white z-10 aspect-video">
+                            <video
+                                className="hero-video w-full h-full object-cover"
+                                src="https://goodies.icons8.com/landings/visualpharm/videos/animated-2d/dynamic-man-working-in-online-support-service-via-laptop-1.mp4"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                            />
+                        </div>
+
+                        {/* Decorative floating elements */}
+
+
+
                     </motion.div>
                 </motion.div>
             </div>

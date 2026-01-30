@@ -296,12 +296,44 @@ a {
   margin-top: 1rem;
 }
 
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
 .mt-12 {
   margin-top: 3rem;
 }
 
+.mt-16 {
+  margin-top: 4rem;
+}
+
 .mt-auto {
   margin-top: auto;
+}
+
+/* Social Icon Link */
+/* Social Icon Link */
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  color: #000000;
+  box-shadow: 5px 5px 0px #000000;
+  transition: all 0.2s ease;
+}
+
+.social-link:hover {
+  box-shadow: 8px 8px 0px #000000;
 }
 
 /* Grid Columns */
@@ -454,7 +486,7 @@ a {
   align-items: center;
   justify-content: center;
   padding: 0.75rem 1.5rem;
-  border-radius: 12px;
+  border-radius: 10px;
   font-weight: 700;
   transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   white-space: nowrap;
@@ -659,7 +691,7 @@ a {
 
 .nav-link {
   padding: 0.55rem 0.9rem;
-  border-radius: 8px;
+  border-radius: 10px;
   color: #000000;
   font-weight: 600;
   font-size: 0.95rem;
@@ -681,7 +713,7 @@ a {
   align-items: center;
   gap: 0.4rem;
   padding: 0.65rem 1rem;
-  border-radius: 12px;
+  border-radius: 10px;
   background: #000000;
   color: #ffffff;
   font-weight: 700;
@@ -896,7 +928,7 @@ a {
   position: relative;
   width: 52px;
   height: 52px;
-  border-radius: 12px;
+  border-radius: 10px;
   background: #ffffff;
   border: 2px solid #000000;
   display: inline-flex;
@@ -971,7 +1003,7 @@ a {
   align-items: flex-start;
   gap: 12px;
   padding: 14px 16px;
-  border-radius: 16px;
+  border-radius: 10px;
   background: #ffffff;
   border: 3px solid #000000;
   box-shadow: 4px 4px 0px #000000;
@@ -986,7 +1018,7 @@ a {
 .contact-detail-icon {
   width: 40px;
   height: 40px;
-  border-radius: 8px;
+  border-radius: 10px;
   display: grid;
   place-items: center;
   background: #000000;

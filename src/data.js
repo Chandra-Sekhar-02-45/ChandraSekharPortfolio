@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { Github, Linkedin, Mail, Twitter, Instagram } from 'lucide-react';
 
 export const PROFILE = {
     name: "Chandra Sekhar",
@@ -7,7 +7,9 @@ export const PROFILE = {
     social: [
         { icon: Github, link: "https://github.com/Chandra-Sekhar-02-45", label: "Github" },
         { icon: Linkedin, link: "https://linkedin.com/in/chandrasekhar45", label: "LinkedIn" },
-        { icon: Mail, link: "mailto:rvcsraju@gmail.com", label: "Email" }
+        { icon: Mail, link: "mailto:rvcsraju@gmail.com", label: "Email" },
+        { icon: Instagram, link: "https://www.instagram.com/_vcsr_45", label: "Instagram" },
+        { icon: Twitter, link: "https://x.com/_Chanduu45_", label: "Twitter" }
     ]
 };
 
