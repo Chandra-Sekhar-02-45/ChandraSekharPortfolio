@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { PROFILE } from '../data';
 
@@ -9,7 +9,7 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+            setScrolled(window.scrollY > 40);
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
@@ -18,70 +18,76 @@ const Navbar = () => {
     const navLinks = [
         { name: 'Home', href: '#' },
         { name: 'Skills', href: '#skills' },
+        { name: 'Projects', href: '#projects' },
         { name: 'Experience', href: '#experience' },
         { name: 'About', href: '#about' },
-        { name: 'Projects', href: '#projects' },
         { name: 'Contact', href: '#contact' },
     ];
 
     return (
-        <motion.nav
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white-90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
-                }`}
-            initial={{ y: -100 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.5 }}
+        <motion.header
+            className={`nav-shell ${scrolled ? 'nav-shell--scrolled' : ''}`}
+            initial={{ y: -80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
         >
-            <div className="container flex justify-between items-center">
-                <a href="#" className="font-bold text-2xl text-black">
-                    @ChandraSekhar
+            <div className="container nav-bar">
+                <a href="#" className="nav-brand">
+                    <span className="nav-dot" />
+                    <div>
+                        <p className="nav-eyebrow">Portfolio of</p>
+                        <p className="nav-title">{PROFILE.name}</p>
+                    </div>
                 </a>
 
-                {/* Desktop Menu - Force hidden on mobile, flex on md */}
-                <div className="hidden md:flex items-center gap-8">
+                <button
+                    className="nav-toggle md:hidden"
+                    aria-label="Toggle navigation"
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                >
+                    {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+                </button>
+
+                <nav className="nav-links md:flex hidden">
                     {navLinks.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.href}
-                            className="text-sm font-medium text-gray-600 hover:text-black"
-                        >
+                        <a key={link.name} href={link.href} className="nav-link">
                             {link.name}
                         </a>
                     ))}
-                    <a href="#contact" className="btn btn-primary-light">
-                        Let's Talk
-                    </a>
-                </div>
+                </nav>
 
-                {/* Mobile Menu Toggle - flex on mobile, hidden on md */}
-                <button
-                    className="flex md:hidden text-black"
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                >
-                    {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
+                <a href="#contact" className="nav-cta">
+                    Get in touch
+                    <ArrowUpRight size={16} />
+                </a>
             </div>
 
-            {/* Mobile Menu Overlay */}
             {mobileMenuOpen && (
                 <motion.div
-                    initial={{ opacity: 0, y: -20 }}
+                    initial={{ opacity: 0, y: -12 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="absolute top-full left-0 w-full bg-white shadow-sm p-6 flex flex-col gap-4 md:hidden"
+                    className="nav-mobile"
                 >
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
                             href={link.href}
-                            className="text-lg font-medium text-black"
+                            className="nav-mobile-link"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             {link.name}
                         </a>
                     ))}
+                    <a
+                        href="#contact"
+                        className="nav-mobile-cta"
+                        onClick={() => setMobileMenuOpen(false)}
+                    >
+                        Get in touch
+                    </a>
                 </motion.div>
             )}
-        </motion.nav>
+        </motion.header>
     );
 };
 

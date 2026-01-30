@@ -59,17 +59,25 @@ const Hero = () => {
 
                 {/* Illustration */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.94 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
+                    transition={{ duration: 0.8, delay: 0.15 }}
                     className="relative flex justify-center z-10"
                 >
-                    <img
-                        src="/assets/hero_illustration.png"
-                        alt="Hero Illustration"
-                        className="relative z-10"
-                        style={{ maxHeight: '500px' }}
-                    />
+                    <motion.div
+                        className="hero-video-shell"
+                        animate={{ y: [0, -6, 0] }}
+                        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                    >
+                        <video
+                            className="hero-video"
+                            src="https://goodies.icons8.com/landings/visualpharm/videos/animated-2d/dynamic-man-working-in-online-support-service-via-laptop-1.mp4"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                        />
+                    </motion.div>
                 </motion.div>
             </div>
         </section>
